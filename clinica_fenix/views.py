@@ -8,4 +8,5 @@ def login(request):
     return render(request, 'clinica_py/registro.html')
 
 def private_page(request):
+    nombre = 
     return render(request, 'clinica_py/PagePrivate.html')
