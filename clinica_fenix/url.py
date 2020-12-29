@@ -1,8 +1,10 @@
 from django.urls import path
 from . import views
 
-#app_name = "app_ex"
+app_name = "clinica_fenix"
 
 urlpatterns = [
-    path("inicio/", views.inicio),   
+    path("", views.inicio),
+    path("login/", views.login)
+       
 ]
