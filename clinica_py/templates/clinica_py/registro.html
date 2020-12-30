@@ -38,26 +38,26 @@
     <br>
 
     <div class="text-center">
-      <form class="d-flex justify-content-center">
+      <form class="d-flex justify-content-center" method="post">
+        {% csrf_token %}
           <div class="shadow-lg p-3 mb-5 bg-white rounded">
           <div class="form-group">
               <h3>Ingresa</h3>
-            <label for="exampleInputEmail1">Correo Electrónico</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico.</small>
+              <br>
+              <table>
+                {{form.as_p}}
+              </table>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-          </div>
-          
           <!-- AGREGUE EL ON CLICK LLAMANDO A LA FUNCION -->
-          <button type="submit" class="btn btn-primary" 
-            onclick="ValidaCredenciales(getElementById('exampleInputEmail1'),getElementById('exampleInputPassword1'));">
+          <div>
+            <input type="submit" value="submit">
+          </div>
+          <button type="submit" class="btn btn-primary">
           <a href="{% url 'clinica_fenix:portal_privado' %}">Entrar</a></button>
-      </div>
-        </form>
+        </div>
+      </form>
     </div>
+    
     
     <!-- END MODAL FORMS -->
 
