@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Usuarios</title>
+</head>
+<body>
+    <h2>El formulario se recibió con éxito!</h2>
+    {% for cliente in usuario %}
+        <p>{{cliente}}</p>
+    {% endfor %}
+    
+</body>
+</html>
