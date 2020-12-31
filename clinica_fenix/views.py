@@ -60,8 +60,5 @@ def eliminar_cliente(request, id):
         return redirect('clinica_fenix:lista_usuario')
     context = {'id':id}
     return render(request, 'clinica_py/eliminar_cliente.html', context)
-
-
-
     
 
