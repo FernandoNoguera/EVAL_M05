@@ -14,11 +14,12 @@ def login(request):
         filename= "/clinica_py/static/clinica_py/data/usuario.json"
         with open(str(settings.BASE_DIR)+filename, 'r') as file:
             usuario=json.load(file)
-        usuario['usuario'].append(form_data)
-        with open(str(settings.BASE_DIR)+filename, 'w') as file:
-            json.dump(usuario, file)
-        return redirect('clinica_fenix:portal_privado')               
+        if (form_data['usuario'] == usuario['usuario']) and (form_data['clave'] == usuario['clave']):
+            return redirect('clinica_fenix:portal_privado')               
+        else:
+            return redirect('clinica_fenix:login')               
     return render(request, 'clinica_py/registro.html',context)
+
 
 def private_page(request):
     return render(request, 'clinica_py/PagePrivate.html')
@@ -51,7 +52,6 @@ def eliminar_cliente(request, id):
         with open(str(settings.BASE_DIR)+filename, 'r') as file:
             clientes=json.load(file)
         for cliente in clientes['usuario']:
-            print(int(cliente[id]), int(id)) 
             if int(cliente['id']) == int(id):
                 clientes['usuario'].remove(cliente)
                 break
@@ -60,8 +60,3 @@ def eliminar_cliente(request, id):
         return redirect('clinica_fenix:lista_usuario')
     context = {'id':id}
     return render(request, 'clinica_py/eliminar_cliente.html', context)
-
-
-
-    
-
