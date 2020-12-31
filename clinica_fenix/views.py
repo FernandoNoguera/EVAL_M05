@@ -31,6 +31,8 @@ def nuevo_usuario(request):
         filename= "/clinica_py/static/clinica_py/data/clientes.json"
         with open(str(settings.BASE_DIR)+filename, 'r') as file:
             usuario=json.load(file)
+        form_data['id'] = usuario['ultimo_id_generado'] + 1
+        usuario['ultimo_id_generado'] = form_data['id']
         usuario['usuario'].append(form_data)
         with open(str(settings.BASE_DIR)+filename, 'w') as file:
             json.dump(usuario, file)
@@ -42,5 +44,24 @@ def usuarios_registrados(request):
     with open(str(settings.BASE_DIR)+filename, 'r') as file:
         clientes=json.load(file)
     return render(request, 'clinica_py/lista_usuario.html', context=clientes)
+
+def eliminar_cliente(request, id):
+    if request.method == "POST":
+        filename= "/clinica_py/static/clinica_py/data/clientes.json"
+        with open(str(settings.BASE_DIR)+filename, 'r') as file:
+            clientes=json.load(file)
+        for cliente in clientes['usuario']:
+            print(int(cliente[id]), int(id)) 
+            if int(cliente['id']) == int(id):
+                clientes['usuario'].remove(cliente)
+                break
+        with open(str(settings.BASE_DIR)+filename, 'w') as file:
+            json.dump(clientes, file)
+        return redirect('clinica_fenix:lista_usuario')
+    context = {'id':id}
+    return render(request, 'clinica_py/eliminar_cliente.html', context)
+
+
+
     
 

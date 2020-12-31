@@ -1,1 +1,1 @@
-{"usuario": [{"nombre": "Fernando", "apellido": "Noguera", "edad": "29", "rut": "17.781.567-5"}, {"nombre": "peter", "apellido": "al", "edad": "3", "rut": "12312"}, {"nombre": "peter", "apellido": "das", "edad": "1215", "rut": "124456"}, {"nombre": "peter", "apellido": "das", "edad": "1215", "rut": "124456"}]}
+{"ultimo_id_generado": 2, "usuario": [{"nombre": "Fernando", "apellido": "Noguera", "edad": "29", "rut": "17.781.567-5", "id": 1}]}
