@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>aqui</p>
+    {{cliente.rut}} <p>1</p>
+    {{rut}} <p>2</p>
+    {{rut.nombre}} <p>3</p>
+    {{usuario}} <p>4</p>
+    {{clitenes}} <p>5</p>
+    {{usuario.id}} <p>6</p>
+
+    {% for cliente in usuario %}
+        <p>{{cliente}} <a href="{% url 'clinica_fenix:eliminar_cliente' id=cliente.id %}"> | Eliminar Cliente</a>
+        <a href="{% url 'clinica_fenix:render_cliente' id=cliente.id %}"> | Datos Cliente</a></p>
+    {% endfor %}
+</body>
+</html>
