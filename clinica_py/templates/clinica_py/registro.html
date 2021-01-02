@@ -1,4 +1,3 @@
-
 {% load static %}
 <!doctype html>
 <html lang="es">
@@ -24,8 +23,6 @@
     {% block nav %}
     {% endblock nav %}
     <!--end nav-->
-
-    
     <div class="text-center">
       <img src="{% static 'clinica_py/img/LogIMG.png' %}" class="rounded" width="200px" height="200px" alt="Doc">
     </div>
@@ -37,6 +34,8 @@
     <br>
     <div class="text-center">
         <h3>Por favor inicie sesión</h3>
+        <h5 >Usuaro: admin</h5>
+        <h5 >pass: 123</h5>
     </div>
     <br>
 
@@ -53,15 +52,11 @@
           </div>
           <!-- AGREGUE EL ON CLICK LLAMANDO A LA FUNCION -->
           <div>
-            <input type="submit" value="submit">
+            <input type="submit" value="Entrar">
           </div>
-          <button type="submit" class="btn btn-primary">
-          <a href="{% url 'clinica_fenix:portal_privado' %}">Entrar</a></button>
         </div>
       </form>
     </div>
-    
-    
     <!-- END MODAL FORMS -->
 
     <!-- jQuery, Popper.js, Bootstrap JS -->

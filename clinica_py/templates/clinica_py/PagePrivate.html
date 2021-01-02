@@ -27,39 +27,20 @@
     <!-- Navigation Bar -->
     <!-- End Navigation Bar -->
 
-
-    
     <!-- navbar lateral inicio-->
     <div class="row-1">
       <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="d-flex p-2 bd-highlight">
+        <div class="d-flex bd-highlight">
           <div id="sidebar-container" class="bg-primary">
             <div class="logo">
                 <h4>Menú</h4>
               </div>
               <div class="menu">
-                <a href="{% url 'clinica_fenix:nuevo_usuario' %}"class= "d-block p-3"> <i class="icon ion-md-heart"></i>Nuevo Usuario</a>
-                <a href="{% url 'clinica_fenix:lista_usuario' %}"class= "d-block p-3"> <i class="icon ion-md-heart"></i>Lista Cliente</a>
-                <a href="CitasProgramadas.html"class= "d-block p-3"> <i class="icon ion-md-heart"></i> Próxima visita al médico</a>
-                <a href="perfilpaciente.html"class= "d-block p-3"> <i class="icon ion-md-heart"></i> Mi Perfil</a>
+                <a href="{% url 'clinica_fenix:nuevo_usuario' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>Nuevo Usuario</a>
+                <a href="{% url 'clinica_fenix:lista_usuario' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>Lista Cliente</a>
+                <a href="{% url 'clinica_fenix:login' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>Salir</a>
               </div>
-          </div>
-
-         
-
-         
-         
-         
-         
-         
-         
-         
-
-         
-         
-
-
-
+          </div>                                                                           
             <div class="d-flex p-1" id="img-icon">
               <img src="{% static 'clinica_py/img/icon-private.jpg' %}" alt="icono usuario">
             </div>
@@ -121,7 +102,7 @@
               labels:['Dato1','Dato2','Dato3','Dato4', 'Dato5'],
               datasets:[{
                       label:'Cuerdas',
-                      data:{{valor}},
+                      data:{{lista}},
                       backgroundColor:[
                           /* Se define el color en formato RGB por cada barra */
                           'rgb(51, 255, 62)',
