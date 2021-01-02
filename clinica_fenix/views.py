@@ -29,8 +29,7 @@ def private_page(request):
         for elemento in diccionario[-5:]:
             edad = elemento.get('edad')
             lista.append(edad)
-            print(lista)
-    context = {'valor' : lista}
+    context = {'valor' : lista }
     return render(request, 'clinica_py/PagePrivate.html', context)
 
 def nuevo_usuario(request):
@@ -70,46 +69,14 @@ def eliminar_cliente(request, id):
     context = {'id':id}
     return render(request, 'clinica_py/eliminar_cliente.html', context)
 
-######################################################################################
-
 def render_cliente(request, id):
     filename= "/clinica_py/static/clinica_py/data/clientes.json"
     with open(str(settings.BASE_DIR)+filename, 'r') as file:
         clientes=json.load(file)
     for cliente in clientes['usuario']:
         if int(cliente['id']) == int(id):
-            cliente = cliente
-            
-            
-        #eliminar
-    if request.method == "POST":
-        filename= "/clinica_py/static/clinica_py/data/clientes.json"
-        with open(str(settings.BASE_DIR)+filename, 'r') as file:
-            clientes=json.load(file)
-        for cliente in clientes['usuario']:
-            if int(cliente['id']) == int(id):
-                clientes['usuario'].remove(cliente)
-                break
-        with open(str(settings.BASE_DIR)+filename, 'w') as file:
-            json.dump(clientes, file)
-        return redirect('clinica_fenix:render_cliente')
-        #fin a eliminar
-
-    context = {'id':id, 'cliente': cliente }
+            cliente_datos = cliente
+    context = {'id':id, 'cliente': cliente_datos }
     return render(request, 'clinica_py/render_cliente.html', context)
 
 
-###########################################################################################
-
-
-def grafico2(request):
-    lista = []
-    filename= "/formularios/static/formularios/data/guitarras.json"
-    with open(str(settings.BASE_DIR)+filename, "r") as file:
-        guitarras=json.load(file)
-        diccionario = guitarras.get('guitarras')
-        for elemento in diccionario[-5:]:
-            cuerdas = elemento.get('cuerdas')
-            lista.append(cuerdas)
-    context = {'valor' : lista}
-    return render(request, "formularios/grafico2.html", context)
