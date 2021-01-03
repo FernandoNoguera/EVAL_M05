@@ -2,21 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
         <meta charset="UTF-8">
         <meta name="viewport" content="width=, initial-scale=1.0">
-        <meta name="viewport" 
-        content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-        <!--Instalamos bootstrap en nuestro proyecto, con uso de CDN-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
-
-        <link 
-        rel="stylesheet" 
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
-        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poiret+One" 
             rel="stylesheet" type="text/css">
@@ -28,88 +17,43 @@
     <!-- End Navigation Bar -->
 
     <!-- navbar lateral inicio-->
-    <div class="row-1">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="d-flex bd-highlight">
-          <div id="sidebar-container" class="bg-primary">
-            <div class="logo">
-                <h4>Menú</h4>
-              </div>
-              <div class="menu">
-                <a href="{% url 'clinica_fenix:nuevo_usuario' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>Nuevo Usuario</a>
-                <a href="{% url 'clinica_fenix:lista_usuario' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>Lista Cliente</a>
-                <a href="{% url 'clinica_fenix:login' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>Salir</a>
-              </div>
-          </div>                                                                           
-            <div class="d-flex p-1" id="img-icon">
-              <img src="{% static 'clinica_py/img/icon-private.jpg' %}" alt="icono usuario">
-            </div>
-            <div class="h1"><hr>
-              <div class="row" id="row-sub">
-                <div class="h3" id="run">10.524.555-8</div>
-                <br><br><br>
-                <div class="row-1">
-                  <br>
-                  <div class="h4"> Descripción breve de enfermedades base:
-                    <p id="parrafo-private">
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                    </p>
-                    <br>
-                    <br>
-                  </div>
-                  <div class="h4"> última visita al médico :
-                    <p id="parrafo-private2">
-                     ---- 25/06/2020 ---
-                    </p>
-                    <br>
-                    <br>
-                  </div>
-                  <div class="h4">Examenes Recientes :
-                  <ul>
-                    <il>Muestra de Sangre,</il>
-                    <il>Cardiología,</il>
-                    <il>Rayo X,</il>
-                    <il>Neurología,</il>
-                    <il>Traumatología.</il>
-                  </ul>
-                  </div>
-              </div>
+    <div id="init" class="container-fluid bg-dark text-white shadow-lg">
+      <div class="row">
+        <nav class="nav flex-column bg-blue text-white col-2">
+          <br>
+          <h4>Menú</h4>
+          <a href="{% url 'clinica_fenix:nuevo_usuario' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>    Nuevo Usuario</a>
+          <a href="{% url 'clinica_fenix:lista_usuario' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>    Lista Cliente</a>
+          <a href="{% url 'clinica_fenix:login' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>    Salir</a>
+        </nav>
+        <div class="col-9 ">
+          <div class="h4"> Graficación de edades de nuestros clientes: {{edades}} {{apellidos}}
+            <p id="parrafo-private">
+            <div class="chart">
+            <canvas id="myChart"></canvas>
             </div>
         </div>
       </div>
-    </div>
-    
-    <!--JS grafico-->
-    <div class="chart">
-      <canvas id="myChart"></canvas>
-      </div>  
-
-    
-    
-    
-                                                                                                                
-
-    
+    </div>                                                                                                                              
     </body>
     <script>
-      console.log("Hello world!");
+      
       var ctx= document.getElementById("myChart");
       var myChart= new Chart(ctx,{
           /* En type se define el tipo de grafico a mostrar */
           type:"bar",
           data:{
-              labels:['Dato1','Dato2','Dato3','Dato4', 'Dato5'],
+              labels:{{apellidos}},
               datasets:[{
-                      label:'Cuerdas',
-                      data:{{lista}},
+                      label:'Edades',
+                      data:{{edades}},
                       backgroundColor:[
                           /* Se define el color en formato RGB por cada barra */
-                          'rgb(51, 255, 62)',
-                          'rgb(51, 93, 255)',
-                          'rgb(207, 40, 52)',
-                          'rgb(116, 51, 255)',
-                          'rgb(51, 212, 255)'
+                          'rgb(240,248,255)',
+                          'rgb(240,248,255)',
+                          'rgb(240,248,255)',
+                          'rgb(240,248,255)',
+                          'rgb(240,248,255)'
                       ]
               }]
           },
@@ -123,5 +67,5 @@
               }
           }
       });
-    </script>
+  </script>
 </html>
