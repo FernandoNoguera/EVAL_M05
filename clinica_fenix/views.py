@@ -21,15 +21,19 @@ def login(request):
     return render(request, 'clinica_py/registro.html',context)
 
 def private_page(request):
-    lista = []
+    listaedad = []
+    listapellido = []
     filename= "/clinica_py/static/clinica_py/data/clientes.json"
     with open(str(settings.BASE_DIR)+filename, "r") as file:
         usuarios = json.load(file)
         diccionario = usuarios.get('usuario')
         for elemento in diccionario[-5:]:
             edad = elemento.get('edad')
-            lista.append(edad)
-    context = {'valor' : lista }
+            listaedad.append(edad)
+        for elemento in diccionario[-5:]:
+            apellido = elemento.get('apellido_paterno')
+            listapellido.append(apellido)
+    context = {'edades' : listaedad, 'apellidos': listapellido}
     return render(request, 'clinica_py/PagePrivate.html', context)
 
 def nuevo_usuario(request):
