@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+        <!-- Navigation Bar -->
+        {% block nav %}
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+          
+          <a class="navbar-brand" href="index.html">The Great Clinic</a>
+    
+    
+          <!-- Navigation Bar Hamburger-->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navigation"
+            aria-expanded="false"
+            aria-controls="navigation" 
+            aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- End Navigation Bar Hamburger -->
+          <!-- Navigation Links -->
+          <div class="collapse navbar-collapse" id="navigation">
+             <ul class="navbar-nav mr-auto">
+                <li class="nav-item text-succes">
+                  <a
+                    class="nav-link scroll-trigger" 
+                    href="index.html">
+                      Inicio
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                  class="nav-link scroll-trigger" 
+                  href="Graficos.html">
+                    Información Actual
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                  class="nav-link scroll-trigger" 
+                  href="Proveedores.html">
+                    Proveedores
+                </a>
+                </li>
+                  <a
+                    class="nav-link scroll-trigger" 
+                    href="#contacto">
+                      Contacto
+                  </a>
+                </li>
+             </ul>
+              <form class="form-inline my-2 my-lg-0 NavButton">
+               <button class="btn btn-outline-success border-dark 
+                        font-weight-bold text-white my-2 my-sm-0"
+                        type="submit"> <a href="{% url 'clinica_fenix:login' %}">Registrarse</a> </button>
+              </form>
+              <form class="form-inline my-2 my-lg-0 NavButton">
+                <button class="btn btn-outline-success border-dark 
+                         font-weight-bold text-white my-2 my-sm-0 NavButton"
+                         type="submit"> <a href="RegistroUsuario.html">Nuevo</a></button>
+               </form> 
+          </div>
+          <!-- Navigation Links -->
+        </nav>
+        {% endblock nav %}
+        <!-- End Navigation Bar -->
+    
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+   
+  </body>
+</html>
