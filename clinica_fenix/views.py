@@ -27,10 +27,11 @@ def private_page(request):
     with open(str(settings.BASE_DIR)+filename, "r") as file:
         usuarios = json.load(file)
         diccionario = usuarios.get('usuario')
-        for elemento in diccionario[-5:]:
+        for elemento in diccionario:
             edad = elemento.get('edad')
+            edad = int(edad)
             listaedad.append(edad)
-        for elemento in diccionario[-5:]:
+        for elemento in diccionario:
             apellido = elemento.get('apellido_paterno')
             listapellido.append(apellido)
     context = {'edades' : listaedad, 'apellidos': listapellido}

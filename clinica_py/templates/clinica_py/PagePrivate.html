@@ -13,13 +13,13 @@
     <title>Sesión Privada</title>
   </head>
 <body>
-    <!-- Navigation Bar -->
-    <!-- End Navigation Bar -->
-
-    <!-- navbar lateral inicio-->
-    <div id="init" class="container-fluid bg-dark text-white shadow-lg">
+  <nav class="navbar navbar-expand-lg navbar-dark ">
+    <a class="navbar-brand" href="{% url 'clinica_fenix:index' %}">The Great Fenix Clinic</a>
+    </div>
+  </nav>
+    <div id="init" class="container-fluid bg-ligth text-dark shadow-lg">
       <div class="row">
-        <nav class="nav flex-column bg-blue text-white col-2">
+        <nav class="nav flex-column bg-dark text-light col-2">
           <br>
           <h4>Menú</h4>
           <a href="{% url 'clinica_fenix:nuevo_usuario' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>    Nuevo Usuario</a>
@@ -27,23 +27,26 @@
           <a href="{% url 'clinica_fenix:login' %}"class= "d-block p-4"> <i class="icon ion-md-heart"></i>    Salir</a>
         </nav>
         <div class="col-9 ">
-          <div class="h4"> Graficación de edades de nuestros clientes: {{edades}} {{apellidos}}
+          <div class="h4"> Graficación de edades de nuestros 10 últimos clientes:
             <p id="parrafo-private">
             <div class="chart">
             <canvas id="myChart"></canvas>
             </div>
         </div>
       </div>
-    </div>                                                                                                                              
+    </div> 
+    <footer class="footer bg-dark text-center fixed-bottom">
+      <p class="text-muted">&copy; 2021 Clinica Fenix.</p>
+      <p class="text-muted">Renaciendo Pacientes</p>
+    </footer>                                                                                                                             
     </body>
     <script>
-      
       var ctx= document.getElementById("myChart");
       var myChart= new Chart(ctx,{
           /* En type se define el tipo de grafico a mostrar */
           type:"bar",
           data:{
-              labels:{{apellidos}},
+              labels:{{apellidos|safe}},
               datasets:[{
                       label:'Edades',
                       data:{{edades}},
@@ -53,7 +56,8 @@
                           'rgb(240,248,255)',
                           'rgb(240,248,255)',
                           'rgb(240,248,255)',
-                          'rgb(240,248,255)'
+                          'rgb(240,248,255)',
+                          'rgb(240,248,255)',
                       ]
               }]
           },
