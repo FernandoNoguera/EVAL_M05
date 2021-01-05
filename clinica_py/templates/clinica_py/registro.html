@@ -1,3 +1,4 @@
+
 {% load static %}
 <!doctype html>
 <html lang="es">
@@ -6,31 +7,26 @@
     <meta charset="utf-8">
     <meta name="viewport" 
         content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Loading Bootstrap CSS -->
     <link 
       rel="stylesheet" 
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
       crossorigin="anonymous">
-    <!--google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" 
         rel="stylesheet" type="text/css">
-    <!--Css-->
     <link rel="stylesheet" href="{% static 'clinica_py/css/style.css' %}">
   </head>
   <body>
-    <!--nav init-->
-    {% block nav %}
-    {% endblock nav %}
-    <!--end nav-->
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <a class="navbar-brand" href="{% url 'clinica_fenix:index' %}">The Great Fenix Clinic</a>
+      </div>
+    </nav>
     <div class="text-center">
       <img src="{% static 'clinica_py/img/LogIMG.png' %}" class="rounded" width="200px" height="200px" alt="Doc">
     </div>
-    <!--S,N text center-->
     <div class="text-center">
         <h1>Bienvenid@s</h1>
     </div>
-    <!--desc.-->
     <br>
     <div class="text-center">
         <h3>Por favor inicie sesión</h3>
@@ -38,7 +34,6 @@
         <h5 >pass: 123</h5>
     </div>
     <br>
-
     <div class="text-center">
       <form class="d-flex justify-content-center" method="post">
         {% csrf_token %}
@@ -50,16 +45,16 @@
                 {{form.as_p}}
               </table>
           </div>
-          <!-- AGREGUE EL ON CLICK LLAMANDO A LA FUNCION -->
           <div>
             <input type="submit" value="Entrar">
           </div>
         </div>
       </form>
     </div>
-    <!-- END MODAL FORMS -->
-
-    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <footer class="footer bg-dark text-center fixed-bottom">
+      <p class="text-muted">&copy; 2021 Clinica Fenix.</p>
+      <p class="text-muted">Renaciendo Pacientes</p>
+    </footer>
     <script 
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
@@ -74,10 +69,6 @@
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" 
       crossorigin="anonymous">
-    </script>
-
-    <!-- Loading Javasript link FYSU-->
-    <script language="JavaScript" src="js/app.js"></script> 
-
+    </script> 
   </body>
 </html>

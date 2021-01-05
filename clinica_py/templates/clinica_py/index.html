@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" 
         content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Loading Bootstrap CSS -->
     <link 
       rel="stylesheet" 
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
@@ -17,13 +16,8 @@
     <link rel="stylesheet" href="{% static 'clinica_py/css/style.css' %}">
   </head>
   <body>
-    <!-- Navigation Bar -->
-    {% block nav %}
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <a class="navbar-brand" href="index.html">The Great Clinic</a>
-
-
-      <!-- Navigation Bar Hamburger-->
+      <a class="navbar-brand" href="{% url 'clinica_fenix:index' %}">The Great Fenix Clinic</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -34,62 +28,23 @@
         aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- End Navigation Bar Hamburger -->
-      <!-- Navigation Links -->
       <div class="collapse navbar-collapse" id="navigation">
          <ul class="navbar-nav mr-auto">
-            <li class="nav-item text-succes">
-              <a
-                class="nav-link scroll-trigger" 
-                href="index.html">
-                  Inicio
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-              class="nav-link scroll-trigger" 
-              href="Graficos.html">
-                Información Actual
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-              class="nav-link scroll-trigger" 
-              href="Proveedores.html">
-                Proveedores
-            </a>
-            </li>
-              <a
-                class="nav-link scroll-trigger" 
-                href="#contacto">
-                  Contacto
-              </a>
-            </li>
+            <li class="nav-item text-succes">    
+            </li>                    
          </ul>
           <form class="form-inline my-2 my-lg-0 NavButton">
            <button class="btn btn-outline-success border-dark 
                     font-weight-bold text-white my-2 my-sm-0"
                     type="submit"> <a href="{% url 'clinica_fenix:login' %}">Registrarse</a> </button>
-          </form>
-          <form class="form-inline my-2 my-lg-0 NavButton">
-            <button class="btn btn-outline-success border-dark 
-                     font-weight-bold text-white my-2 my-sm-0 NavButton"
-                     type="submit"> <a href="RegistroUsuario.html">Nuevo</a></button>
-           </form> 
       </div>
-      <!-- Navigation Links -->
     </nav>
-    {% endblock nav %}
-    <!-- End Navigation Bar -->
-
-    <!-- Section: Principal -->
     <div class="container-fluid bg-principal" id="principal">
       <div class="row">
         <div class="col-sm-12">
           <div class="container-fluid bg-light" id="equipo">
             <div class="row">
               <h3>Queremos que te mejores</h3>
-              <!-- Parrafo central de la página-->
               <div class="h4">
               <p id="parraf">
                 Porque "The Great Clinic" nació para hacer que tú ida al médico sea más expedita, y por que sabemos lo importante <br>
@@ -98,9 +53,6 @@
               </p>
               </div>
             </div>
-            <!--
-              inicio de carrusel de imagenes
-            -->
             <div class="row">
               <div id="team-carousel" 
                   class="carousel slide" 
@@ -150,7 +102,6 @@
               </div>
             </div>
           </div>
-          <!-- fin carrusel de imagenes -->
           </div>
         </div>
       </div>
@@ -224,9 +175,6 @@
         </div>
       </div>
     </div>
-    <!-- End Section: Enlaces -->
-
-    <!-- Section: Contacto -->
     <div class="container-fluid bg-light" id="contacto">
       <div class="row">
         <h2>Contáctanos</h2>
@@ -257,15 +205,10 @@
         </div>
       </div>
     </div>
-    <!-- End Section: Contacto -->
-
-    <footer class="footer bg-dark text-center">
-      <p class="text-muted">&copy; 2020 Awakelab.</p>
-      <p class="text-muted">Grupo Full Stack Python</p>
+    <footer class="footer bg-dark text-center fixed-bottom">
+      <p class="text-muted">&copy; 2021 Clinica Fenix.</p>
+      <p class="text-muted">Renaciendo Pacientes</p>
     </footer>
-
-
-    <!-- jQuery, Popper.js, Bootstrap JS -->
     <script 
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 

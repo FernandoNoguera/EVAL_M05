@@ -20,21 +20,6 @@ def login(request):
             return redirect('clinica_fenix:login')               
     return render(request, 'clinica_py/registro.html',context)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def private_page(request):
     listaedad = []
     listapellido = []
@@ -42,30 +27,15 @@ def private_page(request):
     with open(str(settings.BASE_DIR)+filename, "r") as file:
         usuarios = json.load(file)
         diccionario = usuarios.get('usuario')
-        for elemento in diccionario[-5:]:
+        for elemento in diccionario:
             edad = elemento.get('edad')
             edad = int(edad)
             listaedad.append(edad)
-        for elemento in diccionario[-5:]:
-
+        for elemento in diccionario:
             apellido = elemento.get('apellido_paterno')
-            apellido = apellido[5, len(apellido)-5]
             listapellido.append(apellido)
-
-            
-            print(listaedad,listapellido)
     context = {'edades' : listaedad, 'apellidos': listapellido}
     return render(request, 'clinica_py/PagePrivate.html', context)
-
-
-
-
-
-
-
-
-
-
 
 def nuevo_usuario(request):
     formulario = NewUser(request.POST or None)
